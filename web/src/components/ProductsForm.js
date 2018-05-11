@@ -10,9 +10,9 @@ import fetchProducts from '../actions/productsActions';
 
 class ProductsForm extends Component {
 
-    // componentDidMount() {
-    //     this.props.fetchProducts()
-    // }
+    componentDidMount() {
+        this.props.fetchProducts()
+    }
 
     render() {
 
@@ -30,11 +30,9 @@ class ProductsForm extends Component {
 
         return (
             <div>
-                <Link to="/">Home</Link>
-                <h2>Products</h2>
                 <input
                     type="submit"
-                    value="Load Products"
+                    value="Reload Products"
                     onClick={() => this.props.fetchProducts()}
                 />
                 {Products}
