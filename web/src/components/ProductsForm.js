@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -29,6 +30,7 @@ class ProductsForm extends Component {
 
         return (
             <div>
+                <Link to="/">Home</Link>
                 <h2>Products</h2>
                 <input
                     type="submit"

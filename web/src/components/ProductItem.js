@@ -1,25 +1,19 @@
 import React from 'react';
 
+//import ProductDetails from './ProductDetails';
 
 const ProductItem = ({ item }) => {
 
-    const { title, description, slug, price, _id, tags} = item;
+    
+
+    const { _id, title } = item;
 
     return(
         <div>
             <p>---------------------------------------------</p>
             <p>Id: {_id}</p>
             <p>Title: {title}</p>
-            <p>Description: {description}</p>
-            <p>Slug: {slug}</p>
-            <p>Price: {price}</p>
-            <p>Tags: [
-                {
-                    tags.map( tag => {
-                        return(<span key={tag}> {tag} </span>)
-                    })
-                }]
-            </p>
+            <input type="submit" value="Details" />
             <p>---------------------------------------------</p>
         </div>           
        

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 // import LoginForm from './components/Login';
 // import RegisterForm from './components/RegisterForm';
-import ProductsForm from './components/ProductsForm';
+// import ProductsForm from './components/ProductsForm';
+
+import Routes from './routes/routes';
 
 // import { applyMiddleware, createStore } from 'redux'
 // import { Provider } from 'react-redux'
@@ -21,8 +23,10 @@ class App extends Component {
       // <Provider store={store}>
       //   <ProductsForm />
       // </Provider>
-      <ProductsForm />
-      // <RegisterForm />
+      <div>
+
+        <Routes />
+      </div>
 
     );
   }
