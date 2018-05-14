@@ -4,10 +4,8 @@ import React from 'react';
 
 const ProductItem = ({ item }) => {
 
-    
-
     const { _id, title } = item;
-
+    
     return(
         <div>
             <p>---------------------------------------------</p>

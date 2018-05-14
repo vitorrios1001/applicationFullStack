@@ -1,27 +1,33 @@
 import React from 'react';
 
+import { Modal }from 'antd';
 
-const ProductDatails = ({ item }) => {
+const ProductDetails = ({ item }) => {
     const { title, description, slug, price, _id, tags } = item;
 
     return (
         <div>
-            <p>---------------------------------------------</p>
-            <p>Id: {_id}</p>
-            <p>Title: {title}</p>
-            <p>Description: {description}</p>
-            <p>Slug: {slug}</p>
-            <p>Price: {price}</p>
-            <p>Tags: [
+            <Modal
+                title="Product Detail"
+                visible={this.state.visible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+            >
+                <p>Id: {_id}</p>
+                <p>Title: {title}</p>
+                <p>Description: {description}</p>
+                <p>Slug: {slug}</p>
+                <p>Price: {price}</p>
+                <p>Tags: [
                 {
-                    tags.map(tag => {
-                        return (<span key={tag}> {tag} </span>)
-                    })
-                }]
+                        tags.map(tag => {
+                            return (<span key={tag}> {tag} </span>)
+                        })
+                    }]
             </p>
-            <p>---------------------------------------------</p>
+            </Modal>            
         </div>
     )
 }
 
-export default ProductDatails;
+export default ProductDetails;
