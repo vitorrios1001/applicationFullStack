@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ProductItem from './ProductItem';
+//import ProductItem from './ProductItem';
 import ProductNew from './ProductNew';
-import ProductDetails from './ProductDetails';
+//import ProductDetails from './ProductDetails';
 
-import fetchProducts from '../actions/productsActions';
+import fetchProducts from './../../actions/productsActions';
 import { Table, Button, Icon, Modal } from 'antd';
 
 class ProductsForm extends Component {
@@ -17,11 +17,16 @@ class ProductsForm extends Component {
         this.props.fetchProducts()
     }
 
-    state = { visible: false }
+    state = {
+        visible: false,
+        selectDetails: {}
+    }
 
-    showModal = () => {
+    showModal = (e) => {
+        console.log(e);
         this.setState({
             visible: true,
+            selectDetails: e
         });
     }
     handleOk = (e) => {
@@ -41,7 +46,12 @@ class ProductsForm extends Component {
         const columns = [{
             title: 'Title',
             dataIndex: 'title',
-            render: text => <a onClick={this.showModal}>{text}</a>,
+            render: (text, record) =>
+                <a
+                    key={record._id}
+                    onClick={() => this.showModal(record)}>
+                    {record.title}
+                </a>,
         }, {
             title: 'Price',
             dataIndex: 'price',
@@ -65,9 +75,9 @@ class ProductsForm extends Component {
             return (<h3>Loading...</h3>)
         }
 
-        const Products = this.props.products.map(produto => {
-            return <ProductItem key={produto._id} item={produto} />
-        });
+        // const Products = this.props.products.map(produto => {
+        //     return <ProductItem key={produto._id} item={produto} />
+        // });
 
         console.log(this.props.products)
 
@@ -82,7 +92,19 @@ class ProductsForm extends Component {
                     <Icon type="reload" />
                 </Button>
 
-                <ProductDetails />
+                {/* <ProductDetails /> */}
+                <Modal
+                    title="Product Detail"
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                >
+                    <p>ID: {this.state.selectDetails._id}</p>
+                    <p>Title: {this.state.selectDetails.title}</p>
+                    <p>Description: {this.state.selectDetails.description}</p>
+                    <p>Price: {this.state.selectDetails.price}</p>
+                    <p>Slug: {this.state.selectDetails.slug}</p>                    
+                </Modal>
 
                 <Table
                     style={{ marginTop: 10 }}
@@ -90,7 +112,7 @@ class ProductsForm extends Component {
                     columns={columns}
                     dataSource={this.props.products}
                 >
-                
+
                 </Table>
             </div>
         )

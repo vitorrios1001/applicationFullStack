@@ -38,6 +38,9 @@ class SiderBar extends Component {
                         <Menu.Item key="3">
                             <Link to="/products">Products</Link>
                         </Menu.Item>
+                        <Menu.Item key="4">
+                            <Link to="/orders">Orders</Link>
+                        </Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="sub2"
