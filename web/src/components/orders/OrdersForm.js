@@ -22,7 +22,7 @@ class OrdersForm extends Component {
     }
 
     showModal = (e) => {
-        
+        console.log(e)
         this.setState({
             visible: true,
             selectDetails: e,
@@ -74,7 +74,7 @@ class OrdersForm extends Component {
         const listItems = this.state.items.map(item => {
             return (
                 <div>
-                    <Card style={{ width: 470 }}>
+                    <Card  key={item._id} style={{ width: 470 }}>
                         <p>Title: {item.product.title}</p>
                         <p>Description: {item.product.description}</p>
                         <p>Slug: {item.product.slug}</p>
