@@ -1,22 +1,14 @@
 import axios from 'axios';
 
-import URL_API from 'https://apinodejsvr.herokuapp.com/customers/authenticate';
+//import URL_API from 'https://apinodejsvr.herokuapp.com/customers/authenticate';
+//import { hashHistory } from 'react-router';
 
-export function authenticate(user) {
-
-  const req = axios.post(
-    URL_API,
-    {
-        email: user.email,
-        password: user.password
-    }).then(
-        
-    ).catch(
-
-    )
-
+export default function fetchLogged(){
     
-
+    // return dispatch => {
+    //     dispatch(hashHistory.push('/#/'))
+        
+    // }
 }
 
 

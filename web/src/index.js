@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { Router, hashHistory } from 'react-router';
+//import { BrowserRouter, Switch } from 'react-router-dom'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import App from './theme/App';
+import Main from './main';
+
+import Routes from './routes/routes';
 
 import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -16,11 +19,17 @@ const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        {/* <BrowserRouter>
             <Switch>
-                <App />
+                <Routes />
             </Switch>
-        </BrowserRouter>
+        </BrowserRouter> */}
+
+        <Main />
+
+
+
+
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();

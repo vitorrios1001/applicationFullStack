@@ -5,7 +5,7 @@ const INITIAL_STATE = {
 
 export default ( state = INITIAL_STATE, action ) => {
     switch(action.type){
-        case 'LOGGED':
+        case 'FETCH_LOGGED':
             return { ...state, logged: true }
         case 'AUTHENTICATE':
             return { ...state, token: action.payload.data.token}    
