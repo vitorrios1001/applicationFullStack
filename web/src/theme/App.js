@@ -12,36 +12,51 @@ import Sider from './sider';
 import Footer from './footer';
 import LoginIndex from '../pages/loginIndex';
 //import Body from './body';
-import Routes from '../routes/routes'
+// import Routes from '../routes/routes'
 
 import { Route } from 'react-router-dom'
 import Login from '../pages/loginIndex'
+import HomeIndex from '../pages/homeIndex';
+import ProductsIndex from '../pages/productsIndex';
+import ProductNew from '../components/products/ProductNew';
+import OrdersIndex from '../pages/ordersIndex';
 
 class App extends Component {
-
+  
   render() {
+
+   
+      
     
-      return (
-        <div>
-          <Layout style={{ minHeight: '100vh' }}>
-            <Sider />
 
-            <Layout>
-              <Header />
+    return (
+      <div>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Sider />
 
-              <Routes />
+          <Layout>
+            <Header />
+            
+            <Route path='/' component={HomeIndex}/>
+            <Route path='/products' component={ProductsIndex} />
+            <Route path='/products-new' component={ProductNew} />
+            <Route path='/orders' component={OrdersIndex} />
+            {/* <Routes /> */}
 
-              <Footer />
-            </Layout>
+            <Footer />
           </Layout>
-        </div>
-      ); 
+        </Layout>
+      </div>
+
+      // <Login />
+    );
+
 
   }
 }
 
-const mapStateToProps = state => ({
-  logged: state.login.logged
-})
+// const mapStateToProps = state => ({
+//   logged: state.login.logged
+// })
 
 export default App;
